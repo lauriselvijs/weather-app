@@ -1,5 +1,7 @@
 import Loader from "react-loader-spinner";
 
+// Loader component handles screen loading look
+
 const LoaderComp = () => {
   return (
     <Loader

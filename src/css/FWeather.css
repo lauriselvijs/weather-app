@@ -1,4 +1,5 @@
 .f-weather {
+  /* Create grid layout to align weather days in one row */
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: auto;
@@ -9,15 +10,19 @@
 }
 
 .weather-info-day-1 {
+  /* first item in row */
   grid-area: 1 / 1 / 1 / 1;
 }
 .weather-info-day-2 {
+  /* second item in row */
   grid-area: 1 / 2 / 1 / 2;
 }
 .weather-info-day-3 {
+  /* third item in row */
   grid-area: 1 / 3 / 1 / 3;
 }
 
+/* all forcasted weather text sizes*/
 .f-location {
   font-weight: bold;
   font-size: 16px;

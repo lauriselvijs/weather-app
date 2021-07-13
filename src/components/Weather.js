@@ -26,18 +26,38 @@ import { weatherDate, fWeatherDate } from "../utils/WeatherHelper";
 
 import Loader from "../loaders/loader";
 
-function FWeather() {
+/* 
+Weather component used for displaying weather for current day
+which includes information about real time temperature,
+real feel temp, humidity, perception, wind speed and directions as
+well location and time.
+Also includes prediction of temperature, real feel, wind, chances of rain, 
+for current day and next two days 
+*/
+
+function Weather() {
+  // used for receiving data from API in data object
   const [data, setData] = useState([]);
+
+  // used for disabling or enabling loading screen
   const [isLoading, setLoading] = useState(true);
 
+  // used to enable city name
   const [cityName, setCityName] = useState("London");
+
+  // used to set lang and lat for weather location
   const [location, setLocation] = useState();
 
+  // allows disabling or enabling measurement systems
   const [metric, setMetric] = useState(false);
 
+  // used to display error if user input incorrect (ERROR 400)
   const [error, setError] = useState(false);
+
+  // used if user disable browser location
   const [locationError, setLocationError] = useState(false);
 
+  // used to acces Weather API key
   const API_KEY = process.env.REACT_APP_WEATHER_API_KEY;
 
   const fetchData = async () => {
@@ -52,11 +72,14 @@ function FWeather() {
         },
       });
       setData(result.data);
+      // Disable loading screen when data loaded
       setLoading(false);
+      // Remove city name from input box
       setCityName("");
     } catch (error) {
       console.log(error.response);
       if (error.response.status === 400) {
+        // If bad input displays error msg
         setError(true);
       }
 
@@ -65,16 +88,16 @@ function FWeather() {
   };
 
   useEffect(() => {
+    // Renders screen only if location or cityName present
     if (location || cityName) fetchData();
   }, [location]);
 
+  // On search button press fetch data for city
   const handleSearchSubmit = (evt) => {
     evt.preventDefault();
 
     fetchData();
   };
-
-  //console.log(fetchData());
 
   // Now I can use the promise followed by .then()
   // to make use of the values anywhere in the program
@@ -100,6 +123,7 @@ function FWeather() {
       }
     });
 
+    // Using promise to async access location property's
     getLocationPromise
       .then((location) => {
         let loc =
@@ -115,11 +139,13 @@ function FWeather() {
       });
   };
 
+  // using to change from metric to imperial measurement system
   const handleLConversion = (evt) => {
     evt.preventDefault();
     metric ? setMetric(false) : setMetric(true);
   };
 
+  // Remove any errors from screen and reset search input field
   const handleErrorSubmit = (evt) => {
     evt.preventDefault();
     setError(false);
@@ -127,6 +153,7 @@ function FWeather() {
     setCityName("");
   };
 
+  // Shows loading screen
   if (isLoading) {
     return (
       <div className="loading">
@@ -137,6 +164,7 @@ function FWeather() {
     );
   }
 
+  // Shows input error
   if (error) {
     return (
       <div className="error">
@@ -152,6 +180,7 @@ function FWeather() {
     );
   }
 
+  // Shows location error
   if (locationError) {
     return (
       <div className="error">
@@ -169,6 +198,8 @@ function FWeather() {
 
   return (
     <div>
+      {/*Form and buttons needed so user can search and input location,
+      search by geo location and convert from imperial to metric units*/}
       <Form block className="mt-2 ml-2">
         <InputGroup className="mb-3">
           <FormControl
@@ -203,6 +234,7 @@ function FWeather() {
 
       <div className="weather">
         <Jumbotron fluid>
+          {/*  show info about real time weather*/}
           <div className="rt-weather">
             <div className="rt-weather-info">
               <img
@@ -277,6 +309,7 @@ function FWeather() {
         </Jumbotron>
 
         <Jumbotron>
+          {/*  show info about forecasted time weather*/}
           <div className="f-weather">
             <div className="weather-info-day-1">
               <img
@@ -479,4 +512,4 @@ function FWeather() {
   );
 }
 
-export default FWeather;
+export default Weather;

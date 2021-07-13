@@ -1,4 +1,6 @@
 .weather {
+  /* Create grid layout to align forecasted weather
+    and real time weather in two columns one beside another */
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: auto;
@@ -8,24 +10,28 @@
 }
 
 .rt-weather {
+  /* left column*/
   grid-area: 1 / 1 / 1 / 1;
   text-align: center;
 }
 .f-weather {
+  /* right column*/
   grid-area: 1 / 2 / 1 / 2;
   text-align: center;
 }
 
+/* on screen loading show loading text in middle of screen*/
 .loading {
   display: block;
-
   text-align: center;
 }
 
+/* on error show error text in middle of screen*/
 .error {
   text-align: center;
 }
 
+/* for small screen devices align items one after another in one column*/
 @media only screen and (max-width: 600px) {
   .weather {
     display: block;

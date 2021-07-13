@@ -6,6 +6,9 @@ import Footer from "./components/Footer";
 
 import React from "react";
 
+/* App consists of three components which include information about
+Header, Weather and Footer look and functionality  */
+
 function App() {
   return (
     <div className="App">
