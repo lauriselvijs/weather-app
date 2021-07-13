@@ -1,0 +1,33 @@
+.weather {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto;
+  grid-column-gap: 20px;
+  grid-row-gap: 0px;
+  flex: 0 1 auto;
+}
+
+.rt-weather {
+  grid-area: 1 / 1 / 1 / 1;
+  text-align: center;
+}
+.f-weather {
+  grid-area: 1 / 2 / 1 / 2;
+  text-align: center;
+}
+
+.loading {
+  display: block;
+
+  text-align: center;
+}
+
+.error {
+  text-align: center;
+}
+
+@media only screen and (max-width: 600px) {
+  .weather {
+    display: block;
+  }
+}

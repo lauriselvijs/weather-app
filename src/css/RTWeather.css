@@ -1,0 +1,59 @@
+.rt-weather {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  flex: 0 1 auto;
+}
+
+.rt-weather-info {
+  grid-area: 1 / 1 / 1 / 1;
+}
+.rt-add-weather-info {
+  grid-area: 1 / 2 / 1 / 2;
+}
+.rt-date-location {
+  grid-area: 1 / 3 / 1 / 3;
+}
+
+.rt-location {
+  font-weight: bold;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.rt-weather-info-text {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.rt-date {
+  font-weight: normal;
+  font-size: 16px;
+}
+
+.rt-precipitation {
+  font-weight: normal;
+  font-size: 16px;
+}
+
+.rt-humidity {
+  font-weight: normal;
+  font-size: 16px;
+}
+
+.rt-wind {
+  font-weight: normal;
+  font-size: 16px;
+}
+
+.rt-temperature {
+  font-weight: bold;
+  font-size: 32px;
+}
+
+.rt-real-feel {
+  font-weight: normal;
+  font-size: 16px;
+}
