@@ -6,7 +6,7 @@ import Nav from "react-bootstrap/Nav";
 function Header() {
   return (
     <div className="header">
-      <Navbar bg="light" expand="lg" block>
+      <Navbar bg="light" expand="lg">
         <Navbar.Brand href="/">Weather App</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">

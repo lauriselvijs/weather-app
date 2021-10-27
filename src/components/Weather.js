@@ -57,7 +57,7 @@ function Weather() {
   // used if user disable browser location
   const [locationError, setLocationError] = useState(false);
 
-  // used to acces Weather API key
+  // used to access Weather API key
   const API_KEY = process.env.REACT_APP_WEATHER_API_KEY;
 
   const fetchData = async () => {
@@ -200,7 +200,7 @@ function Weather() {
     <div>
       {/*Form and buttons needed so user can search and input location,
       search by geo location and convert from imperial to metric units*/}
-      <Form block className="mt-2 ml-2">
+      <Form className="mt-2 ml-2">
         <InputGroup className="mb-3">
           <FormControl
             placeholder="Location"
